@@ -3,8 +3,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const authRouter = require("./routes/auth");
 require("dotenv").config();
-const https = require('https');
-process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+// const https = require('https');
+// process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 
 const app = express();
 
