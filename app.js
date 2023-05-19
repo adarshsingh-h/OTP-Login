@@ -3,8 +3,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const authRouter = require("./routes/auth");
 require("dotenv").config();
-const https = require("https");
-process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+// const https = require("https");
+// process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 
 const app = express();
 
@@ -24,6 +24,3 @@ const port = process.env.PORT || 8000;
 app.listen(port, () => {
     console.log(`Server Running on port ${port}`);
 });
-
-//generate OTP = /api/password-less-login
-//login = /api/login

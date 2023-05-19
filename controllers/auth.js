@@ -72,10 +72,10 @@ exports.login = async (req, res, next) => {
     try {
         // Check if the user exists
         const user = await User.findOne({ email });
-        
+
         //If OTP is already used
         if (user && user.otpAlreadyUsed) {
-            return res.status(401).json({message: "OTP already used"});
+            return res.status(401).json({ message: "OTP already used" });
         }
 
         // Check if the user is blocked
@@ -126,6 +126,9 @@ const sendOTP = async (email, otp) => {
                 user: process.env.EMAIL,
                 pass: process.env.PASS,
             },
+            tls: {
+                rejectUnauthorized: false,
+            },
         };
 
         //Setting up Transporter
@@ -142,7 +145,7 @@ const sendOTP = async (email, otp) => {
         //Created a response
         let response = {
             body: {
-                name: email.split('@')[0].trim(),
+                name: email.split("@")[0].trim(),
                 intro: `Your OTP has arrived: ${otp}`,
             },
             outro: "Please don't share your OTP with anyone",
