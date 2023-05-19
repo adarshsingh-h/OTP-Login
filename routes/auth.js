@@ -1,9 +1,8 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const authController = require("../controllers/auth");
 
-
-router.post("/password-less-login", authController.passwordLessLogin);
-router.post("/login", authController.login);
+router.post("/generate-otp", authController.passwordLessLogin);
+router.post("/verify-otp", authController.login);
 
 module.exports = router;
